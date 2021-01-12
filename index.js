@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/rates', (req, res) => {
 axios
+    // connect to the exchange api
   .get("https://api.exchangeratesapi.io/latest?base=CZK&symbols=EUR,GBP,USD")
   .then(function (response) {
     const rawResponse = response.data;
@@ -18,18 +19,14 @@ axios
     results.date = rawResponse.date;
     results.rates = rawResponse.rates ;
 
+    // successful response
     res.status(200).json({ results:  results});
-
-    // if(req){
-    //     res.status(200).json({ results:  results});
-    // }else{
-    //     res.status(404).send({message : "This resource was not found"})
-    // }
 
     })
     .catch(function (error) {
       // handle error
     //   console.log(error);
+    // check the status code returned by axios and forward it
     res.status(error.response.status).send(error.response.data).end();
       console.log(error.response);
     });
