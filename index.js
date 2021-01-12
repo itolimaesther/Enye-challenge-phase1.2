@@ -2,10 +2,10 @@
 const express = require('express');
 const axios = require('axios').default;
 const app = express()
-const port = 5000
+const PORT = 5000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('*', (req, res) => {
+    res.send('Hello World!')
 });
 
 app.get('/api/rates', (req, res) => {
@@ -36,6 +36,6 @@ axios
 
   });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`)
 })
