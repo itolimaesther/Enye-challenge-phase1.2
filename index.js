@@ -5,7 +5,7 @@ const app = express()
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Welcome to my exchange rate app. Use the /api/rates endpoint to navigate to the app')
 });
 
 app.get('/api/rates', (req, res) => {
@@ -33,7 +33,7 @@ axios
 
   });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log(`Express server listening at http://localhost:${port}`)
