@@ -5,12 +5,12 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World Me!')
 });
 
 app.get('/api/rates', (req, res) => {
 axios
-  .get("https://api.exchangeratesapi.io/latest?base=CZK&symbols=EUR,GBP,USD")
+  .get("https://api.exchangeratesapi.io/latest?bazze=CZYK&symbols=EUR,GBP,USD")
   .then(function (response) {
     const rawResponse = response.data;
     let results = { };
@@ -23,7 +23,7 @@ axios
     .catch(function (error) {
       // handle error
       res.status(404)
-      console.log(error);
+      console.log(error.response);
     });
 
   });
